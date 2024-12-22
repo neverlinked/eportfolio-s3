@@ -1,0 +1,252 @@
+@font-face {
+  font-family: "PP Mondwest";
+  src: url("/fonts/PPMondwest-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PP NeueBit";
+  src: url("/fonts/PPNeueBit-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PP NeueBit";
+  src: url("/fonts/PPNeueBit-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+:root {
+  --fonts-mondwest: "PP Mondwest", sans-serif;
+  --fonts-neueBit: "PP NeueBit", sans-serif;
+  --colors-primary: #000000; /* Global primary color set back to black */
+  --colors-background: #efefef;
+  --fontSizes-1: 13px;
+  --fontSizes-2: 15px;
+  --fontSizes-3: 17px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: var(--fonts-neueBit); /* Default body font */
+  background-color: var(--colors-background);
+  color: var(--colors-primary);
+  font-weight: normal; /* Regular NeueBit for body */
+}
+
+h1, h2, h3, h4, h5, h6, p, a {
+  font-family: var(--fonts-mondwest); /* Use Mondwest for headings, links, and paragraphs */
+  font-weight: normal; /* Regular Mondwest */
+}
+
+a {
+  color: var(--colors-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: #555; /* Slightly lighter hover color */
+}
+
+/* Header Styling */
+header {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: var(--fonts-neueBit); /* Header uses NeueBit */
+  font-weight: normal;
+}
+
+header #name {
+  font-family: var(--fonts-neueBit); /* Explicitly use NeueBit */
+  font-weight: bold; /* Bold variant for header name */
+  font-size: 1.575rem; /* Original size */
+  color: var(--colors-primary);
+}
+
+/* Container */
+.container {
+  width: 100vw;
+  height: 100vh;
+  background: var(--colors-background);
+  display: flex;
+  flex-direction: column;
+}
+
+
+p {
+  font-family: var(--fonts-mondwest);
+  font-size: 1.25rem; /* Same as original */
+  font-weight: 1000; /* Keep regular weight */
+  letter-spacing: -0.02em; /* Tighten spacing slightly */
+  text-shadow: 0.25px 0.25px #340000; /* Subtle shadow */
+}
+main {
+  flex: 1;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Transition Canvas */
+.transition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Content */
+.content {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.content__img {
+  max-width: 250px;
+  height: 350px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0; /* Start hidden */
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Navigation */
+nav {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  text-transform: uppercase;
+  z-index: 1000;
+  font-family: var(--fonts-mondwest); /* Navigation uses Mondwest */
+  font-weight: normal;
+}
+
+.nav-logo .nav-link,
+.nav-links .nav-link {
+  padding: 1rem;
+  color: var(--colors-primary);
+}
+
+.nav-links {
+  display: flex;
+}
+
+/* Footer */
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  background-color: var(--colors-background);
+  font-family: var(--fonts-mondwest); /* Footer uses Mondwest */
+  font-weight: normal;
+}
+
+footer .footer-col {
+  flex: 1;
+  text-align: center;
+}
+
+footer .footer-col p {
+  font-size: 0.825rem;
+  color: var(--colors-primary);
+}
+
+/* About Section */
+section.about {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+section.about .about-col p {
+  color: var(--colors-primary);
+  font-family: var(--fonts-mondwest);
+  font-weight: normal;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  section.about {
+    gap: 0;
+    flex-direction: column;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  section.about .about-col p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.about-page {
+  background-color: #340000 !important; /* Set specific background for About page */
+  color: #ffffff !important; /* Force text color to white */
+}
+
+.about-page h1,
+.about-page h2,
+.about-page h3,
+.about-page h4,
+.about-page h5,
+.about-page h6,
+.about-page p,
+.about-page a {
+  color: #ffffff !important; /* Ensure headings, paragraphs, and links are white */
+}
+
+/* Explicit override for .container when .about-page is active */
+.about-page .container {
+  background-color: #340000 !important;
+  color: #ffffff !important;
+}
+
+.about-page nav .nav-logo .nav-link,
+.about-page nav .nav-links .nav-link {
+  color: #ffffff !important; /* Make the navbar text white */
+}
+
+.about-page nav .nav-links .nav-link:hover {
+  color: #cccccc !important; /* Slightly lighter color on hover for contrast */
+}

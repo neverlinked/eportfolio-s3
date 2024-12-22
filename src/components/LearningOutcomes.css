@@ -1,0 +1,236 @@
+/* LearningOutcomes.css */
+
+/* Import Fonts */
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('/fonts/PPNeueMontreal-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Timmons NY';
+  src: url('/fonts/TimmonsNY.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Reset styles within the component */
+.learning-outcomes * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base styles for the component */
+.learning-outcomes {
+  width: 100%;
+  height: 100%;
+  font-family: 'PP Neue Montreal', sans-serif;
+  background-color: #0f0f0f;
+  color: #fff;
+}
+
+/* Typography */
+.learning-outcomes p,
+.learning-outcomes a {
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  color: #5e5e5e;
+  text-transform: uppercase;
+}
+
+.learning-outcomes a {
+  color: #5e5e5e;
+}
+
+.learning-outcomes img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Navigation Styles */
+.learning-outcomes nav {
+  position: absolute;
+  width: 100%;
+  padding: 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+/* Overwrite navbar link color to white with higher specificity */
+.learning-outcomes nav a,
+.learning-outcomes nav .nav-link,
+.learning-outcomes nav .nav-logo .nav-link,
+.learning-outcomes nav .nav-links .nav-link {
+  color: #fff !important;
+}
+
+.learning-outcomes nav a#logo {
+  font-family: 'Timmons NY', sans-serif;
+  font-size: 40px;
+  color: #fff !important;
+}
+
+/* Slider Styles */
+.learning-outcomes .slider {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.learning-outcomes .slide-container {
+  position: absolute;
+  width: 30%;
+  height: 70%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #000;
+  cursor: pointer;
+  will-change: transform, opacity, clip-path;
+  z-index: 2;
+}
+
+.learning-outcomes .slide-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+}
+
+.learning-outcomes .slide-img img {
+  transform: scale(1.5);
+  opacity: 0.75;
+  will-change: transform;
+}
+
+/* Slider Title */
+.learning-outcomes .slider-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 60px;
+  text-align: center;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  z-index: 10;
+}
+
+.learning-outcomes .slider-title h1 {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  color: #fff;
+  font-size: 50px;
+  font-weight: 500;
+}
+
+.learning-outcomes .slider-title h1 span {
+  position: relative;
+  display: inline-block;
+  transform: translateY(50px);
+  will-change: transform;
+}
+
+/* Slider Counter */
+.learning-outcomes .slider-counter {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 2.5em;
+  text-align: center;
+  z-index: 2;
+}
+
+.learning-outcomes .slider-counter p {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  color: #fff;
+}
+
+/* Slider Items */
+.learning-outcomes .slider-items {
+  position: absolute;
+  left: 2.5em;
+  bottom: 2.5em;
+  z-index: 2;
+}
+
+.learning-outcomes .slider-items p {
+  transition: 0.5s color;
+}
+
+.learning-outcomes .slider-items p.activeItem {
+  color: #fff;
+}
+
+/* Slider Preview */
+.learning-outcomes .slider-preview {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75%;
+  margin: 0 auto;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  background: 
+    url("/path-to-your-noise-texture.png") repeat, 
+    rgba(0, 0, 0, 0.6); /* Increase opacity for a stronger effect */
+  background-blend-mode: multiply; /* Intensifies the overlay */
+  opacity: 0.9; /* Adjust overall visibility */
+}
+
+.learning-outcomes .slider-preview img {
+  position: absolute;
+  top: 0;
+  animation: learningOutcomesPan 20s infinite linear;
+}
+
+@keyframes learningOutcomesPan {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Footer Styles */
+.learning-outcomes footer {
+  position: absolute;
+  right: 2em;
+  bottom: 2em;
+  z-index: 10;
+  text-align: right;
+}
+
+/* Media Queries */
+@media (max-width: 900px) {
+  .learning-outcomes .slide-container {
+    top: 75%;
+    width: 70%;
+    height: 50%;
+  }
+
+  .learning-outcomes .slider-preview {
+    top: 0;
+    left: 0;
+    transform: translateX(0%);
+    width: 100%;
+    height: 100%;
+  }
+}
